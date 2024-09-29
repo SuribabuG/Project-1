@@ -1,0 +1,350 @@
+Java
+======
+Version		:	Java 11
+
+JDK		:	JDK 11
+
+Creator		:	James Gosling 
+
+Vendor		:	Oracle Corporation 
+
+Open source	:	Open source 
+
+Website		:	www.oracle.com/in/java
+
+Download link	:	
+
+https://drive.google.com/file/d/1GtRLHXK4y3s97BH2UcYiJPNBaROR1DBV/view?usp=drive_link
+
+Steps to setup environmental variables
+=======================================
+step1:
+------
+	Make sure JDK 11 installed successfully.
+
+step2:
+-------
+	Copy "lib" directory from "Java_Home" folder.
+	ex:
+		C:\Program Files\Java\jdk-11\lib
+
+step3:
+-----
+	Paste "lib" directory in environment variables.
+	ex:
+		right click to This PC --> properties --> Advanced system settings -->	
+		Environmental variables --> 
+
+		user variables --> click to new button.
+
+		variable Name : CLASSPATH
+		variable value :  C:\Program Files\Java\jdk-11\lib;  --> click to Ok 
+
+		system variables --> click to new button.
+		
+		variable Name : path 
+		variable value : C:\Program Files\Java\jdk-11\bin; --> ok --> ok --> ok.
+
+step4:
+------
+	Check the environmental setup done perfectly or not.
+	ex:
+		
+		cmd> javap 
+		cmd> java  -version 
+
+Steps to develop first java application
+=====================================
+step1:
+-----
+	Make sure JDK 11 installed successfully.
+
+step2:
+-----
+	Make sure environmental setup done perfectly.
+
+step3:
+-----
+	Create a "javaprog" folder inside 'E' drive.
+
+step4:
+-----
+	Open the notepad and write Hello World program
+	ex:
+		class Test
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("Hello World");
+			}
+
+		}	
+	
+step5:
+------
+	Save java program with same name as class name inside "javaprog" folder. 
+
+step6:
+-----
+	Open the command prompt from "javaprog" location.
+
+step7:
+------	
+	Compile the java program by using below command.
+	ex:
+		javaprog> javac    Test.java
+					|
+					filename 
+
+step8:
+------
+	Run the java program by using below command.
+	ex:
+		javaprog> java     Test 
+				    |
+				classname 
+
+
+
+Reserved words
+===============
+There are some identifiers which are reserved to associate some functionality or meaning such type of identifiers are called reserved words.
+
+Java supports 53 reserved words.
+
+In java , reserved words are divided into two types.
+
+Diagram: java3.1
+
+Used keywords with respect to class
+------------------------------------
+import 
+package
+enum
+interface
+class
+extends
+implements 
+
+Used keywords with respect to object
+-------------------------------
+new
+instanceof
+this
+super
+
+Used keywords with respect to datatypes
+--------------------------------------
+byte
+short
+int
+long
+float
+double
+boolean
+char 
+
+Used keywords with respect to flow control
+------------------------------------------
+if
+else
+do
+while
+break
+continue
+for 
+switch
+case 
+
+Used keywords with respect to modifiers
+----------------------------------
+default
+public
+private
+protected
+final
+static
+abstract
+synchronized
+strictfp
+transient
+volatile
+native 
+
+Used keywords with respect to return type
+----------------------
+void 
+
+Used keywords with respect to exception handling
+----------------------
+try
+catch
+throw
+throws
+finally
+assert 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

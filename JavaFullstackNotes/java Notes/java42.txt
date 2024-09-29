@@ -1,0 +1,245 @@
+Multithreading
+==============
+Q) What is the difference between Thread and Process?
+
+Thread
+-------
+	Thread is a light weight sub process.
+	We can run multiple threads concurently.
+	One thread can communicate with another thread.
+	ex:
+		class is one thread 
+		block is one thread
+		constructor is one thread
+		and etc.
+
+Process
+--------
+	Process is a collection of threads.
+	We can run multiple process concurently.
+	One process can't communicate with another process.
+	ex:
+		Typing the notes in editor is one process
+		downloading a file from internet is one process
+		taking class from zoommeeting is one process.
+
+
+
+
+Q) What is multitasking?
+
+Executing several task simultenously such concept is called multitasking.
+
+There are two types of multitasking.
+
+1) Thread based multitasking
+
+2) Process based multitasking 
+
+
+1) Thread based multitasking
+-----------------------------
+Thread based multitasking is best suitable for programmatic level.
+
+Executing several task simultenously where each task is a same part of a program.
+
+
+2) Process based multitasking
+-----------------------------
+Process based multitasking is best suitable for operating system level.
+
+Executing several task simultenously where each task is a independent process.
+
+
+
+Q) What is multithreading ?
+
+Executing several threads simultenously such concept is called multithreading.
+
+The main objective of multithreading is to improve performance of an application.
+
+The main important application area of multithreading are.
+
+1) To implements multimedia graphics.
+
+2) To develop video games.
+
+3) To develop animations. 
+
+Ways to start a thread in java
+===============================
+There are two ways to start a thread in java.
+
+1) By extending Thread class 
+
+2) By implementing Runnable interface
+
+1) By extending Thread class 
+----------------------------
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case 1 :  Thread Schedular
+---------------------------
+If multiple threads are waiting for execution which thread will execute decided by thread 
+schedular.
+
+What algorithm, behaviour or mechanism used by thread schedular is depends upon JVM vendor.
+
+Hence we won't expect any execution order or exact output in multithreading.
+
+case2 : Difference between t.start() and t.run() 
+------------------------------------------------
+If we invoke t.start() method then a new thread will be created which is responsible to execute 
+run() method automatically.
+
+ex:
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+If we invoke t.run() method then no new thread will be created but run() method will execute 
+just like normal method.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread 
+		MyThread t=new MyThread();
+		
+		//No new thread
+		t.run();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

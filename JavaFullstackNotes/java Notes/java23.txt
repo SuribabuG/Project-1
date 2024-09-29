@@ -1,0 +1,258 @@
+OOPS
+=====
+OOPS stands for Object Oriented Programming System/Structure.
+
+OOPS are used to deal with real world entities using programming language.
+
+OOPS contains following features.
+
+ex:
+	class 
+	object 
+	Abstraction 
+	Encapsulation 
+	Inheritance 
+	Polymorphism 
+
+
+Object oriented technology 
+--------------------------
+A technology which provides very good environment to represent our data in the form of objects is called object oriented technology.
+
+
+
+class
+======
+A class is a blue print of an object.
+
+A class is a collection of objects.
+
+A class is a logical entity.
+
+We can declare a class as follow.
+
+syntax:
+	optional 
+	|
+	modifier  class  class_name  <extends>  Parent_classname  
+				     <implements> Interface_name 
+	{
+		-
+		- // variables 
+		- // methods 
+		-
+	}
+
+A class will accept following modifiers.
+ex:
+	default 
+	public
+	final
+	abstract 
+
+
+Realtime example :
+----------------
+	To construct a building we required a design. 
+	That design is called blue print i.e class.
+
+
+
+
+Q) What is the difference between default class and public class?
+
+default class					public class
+-----------------				--------------
+To declare a default class we should not 	To declare a public class we should use 
+use any modifier.				public modifier.
+
+ex:						ex:
+	class A 					public class A 
+	{						{
+		
+	}						}
+
+If we declare any class default then we 	If we declare any class as public then we 	
+can access that class within the package.	can access that class within the package and 
+						outside the package.
+
+
+Q) What is the difference between final class and abstract class?
+
+final class					abstract class
+-------------					---------------
+To declare final class we will use final 	To declare abstract class we will use abstract 
+modifier.					modifier.
+ex:						ex:
+	final class A 					abstract class A 
+	{						{
+		
+	}						}
+
+Child creation is not possible.			Child creation is possible.
+
+Object creation is possible.			Object creation is not possible.
+
+
+object
+======
+It is a outcome of a blue print.
+
+It is a instance of a class.
+
+Here instance means allocating memory of our data members.
+
+It is a collection of properties and behaviours.
+
+It is a physical entity.
+
+realtime example
+---------------
+			Dog (object)
+				|
+	     |----------------------------------------------|
+	properties					behaviours
+
+	Name 						barking	
+	Breed 						bitting
+	Color 						eating 
+	Age						running
+	Height						sleeping
+	Weight 						and etc.
+	and etc
+
+We can declare object as follow.
+ex:
+      classname   operator 
+	  |            |
+	Test   t  =   new    Test();
+	       |               |  
+   reference variable        constructor 
+
+It is possible to create more then one object in a single class.
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+		
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+		
+		System.out.println(t1); //Test@Hexadecimanumber
+		System.out.println(t2.toString());
+		System.out.println(t3.toString());
+	}
+}
+
+
+Q) What is hash code in java?
+
+For every object, JVM will create a unique identification number i.e hash code.
+
+In order to read hash code of an object we need to use hashCode() method of Object class.
+
+Diagram: java23.1
+
+
+
+Q) What is toString() method?
+
+A toString() method present in Object class.
+
+Whenever we are trying to display any object reference , directly or indirectly toString() method will be executed.
+
+
+
+Q) What is Object class?
+
+Object class consider as parent class for every java class.
+
+Object class present in java.lang package.
+
+Object class contains following methods.
+
+ex:
+	cmd> javap   java.lang.Object 
+
+	hashCode()
+	toString()
+	wait()
+	notify()
+	notifyAll()
+	getClass()
+	and etc.
+
+
+Q) What is the difference between class and object?
+
+class						object
+----------					---------
+It is a blue print of an object.		It is a instance of a class.
+
+It is a logical entity.				It is a physical entity.
+
+It does not allocate memory.			It allocates memory. 
+
+It does not manipulate.				It manipulates.
+
+It declares only once.				It declares many times.
+
+To declare a class we will use class keyword.	To declare object we will use new keyword.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

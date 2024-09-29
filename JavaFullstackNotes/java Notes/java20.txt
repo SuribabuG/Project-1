@@ -1,0 +1,240 @@
+Q) Write a java to add two array elements and store them in third array?
+
+input:
+	arr1 = 1 6 9 4 2
+	arr2 = 8 2 7 3 6
+
+output:
+	9 8 16 7 8
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1 ={1,6,9,4,2};
+		int[] arr2 ={8,2,7,3,6};
+		
+		int[] resArr=new int[arr1.length];
+		
+		for(int i=0;i<arr1.length && i<arr2.length;i++)
+		{
+			resArr[i]=arr1[i]+arr2[i];
+		}
+		
+		//display the elements 
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+
+	}
+}
+
+Q) Write a java program to merge two array and display them in sorting order?
+
+input:
+	arr1 = 5 1 3 4 2 
+	arr2 = 9 6 8 7 10
+
+output:
+	1 2 3 4 5 6 7 8 9 10
+
+ex:
+---
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1 ={5,1,3,4,2}; 
+		int[] arr2 ={9,6,8,7,10};
+		
+		int size1=arr1.length;
+		int size2=arr2.length;
+		
+		arr1=Arrays.copyOf(arr1,size1+size2);
+		
+		int j=0;
+		for(int i=size1;i<arr1.length;i++)
+		{
+				arr1[i]=arr2[j++];
+		}
+		
+		Arrays.sort(arr1);
+		
+		//display the elements
+		for(int i:arr1)
+		{
+			System.out.print(i+" ");
+		}
+
+	}
+}
+
+Q) Write a java program to find out missing element from given array?
+
+input:
+	1 5 7 2 6 3 
+
+output:
+	4
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,5,7,2,6,3};
+		
+		int sum_of_arr_ele=arr.length+1;
+		
+		int sum=(sum_of_arr_ele*(sum_of_arr_ele + 1))/2;
+		
+		for(int i:arr)
+		{
+			sum=sum-i;
+		}
+		System.out.println(sum);
+	}
+}
+
+ 
+Q) Write a java program to display duplicate elements from given array?
+
+input:
+	5 7 1 3 9 5 3 7 2 
+
+output:
+	5 7 3 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,7,1,3,9,5,3,7,2};
+		
+		//duplicates 
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					System.out.print(arr[i]+" ");
+				}
+			}
+		}
+	}
+}
+
+Q) Write a java program to display unique elements from given array?
+
+input:
+	5 7 1 3 9 5 3 7 2 
+
+output:
+	1 9 2 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,7,1,3,9,5,3,7,2};
+		
+		//uniques
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(cnt==1)
+				System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+
+Q) Write a java program to find out most repeating element from given array?
+
+input:
+	5 2 8 9 2 1 6 2 7 2 4 7
+
+output:
+	2 is repeating for 4 times 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,2,8,9,2,1,6,2,7,2,4,7};
+		
+		int element=0;
+		int maxCount=0;
+
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				element=arr[i];
+			}
+		}
+		
+		System.out.println(element+" is repeating for "+maxCount+" times");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

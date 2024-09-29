@@ -1,0 +1,588 @@
+Q) What is singleton class?
+
+A class which allows us to create only one object is called singleton class.
+
+It is a design pattern that ensures that a class can only have one object.
+
+Using a class if we call any method and that method returns same class object is called singleton class.
+ex:
+	Calendar c=Calendar.getInstance();
+	LocalTime time=LocalTime.now();
+	LocalDate date=LocalDate.now();
+	and etc.
+
+To create a singleton class, a class must have private constructor and static method.
+
+ex:
+----
+class Singleton
+{
+	static Singleton singleton=null;
+	
+	private Singleton()
+	{
+	}
+	
+	//static method
+	public static  Singleton  getInstance()
+	{
+		if(singleton==null)
+		{
+			singleton=new Singleton();
+		}
+		
+		return singleton;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Singleton s1=Singleton.getInstance();
+		Singleton s2=Singleton.getInstance();
+		
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
+	}
+}
+
+
+Enum
+=====
+Enum is a group of named constants.
+
+Enum concept introduced in  1.5v.
+
+Using enum we can created our own datatype called enumerated datatype.
+
+When compare to old language enum, java enum is more powerful.
+
+We can declare enum as follow.
+
+syntax:
+--------
+	enum  <type_name>
+	{
+		value1,value2,valu3,....,valueN	
+	}
+
+ex:
+----
+	enum  Months
+	{
+		JAN,FEB,MAR
+	}
+
+Internal implementation of enum
+--------------------------------
+Every enum internally implemented as class concept and it is extended with java.lang.Enum class.
+
+Every enum constant is a reference variable of enum type.
+
+ex:
+
+enum Months			public final class Months extends java.lang.Enum 
+{				{
+	JAN,FEB,MAR	==>		public static final Months JAN=new Months();	
+}					public static final Months FEB=new Months();
+					public static final Months MAR=new Months();
+				}
+
+Declaration and Usage of enum
+==============================
+enum Months
+{
+	JAN,FEB,MAR
+}
+	
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Months m=Months.JAN;
+		System.out.println(m);//JAN
+	}
+}
+
+From java 1.5 version onwards switch case allow enum.
+
+ex:
+---
+enum Months
+{
+	JAN,FEB,MAR
+}
+	
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Months m=Months.FEB;
+		
+		switch(m)
+		{
+			case JAN: System.out.println("January"); break;
+			case FEB: System.out.println("February"); break;
+			case MAR: System.out.println("March"); break;
+		}
+	}
+}
+
+java.lang.Enum 
+---------------
+The power to enum will be inherited from java.lang.Enum class.
+
+It contains following two methods.
+
+1) values()
+-----------
+	It will return group of constants from enum.
+
+2) ordinal() 
+-----------
+	It will return ordinal numbers.
+
+ex:
+---
+enum  Week
+{
+	MON,TUE,WED,THU,FRI,SAT,SUN	
+}
+	
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Week[] week=Week.values();
+		
+		for(Week w:week)
+		{
+			System.out.println(w+" --------------- "+w.ordinal());
+		}
+	}
+}
+
+When compare to old language enum, java enum is more powerful because in addition to constants we can declare variables, methods and constructors.
+
+ex:
+---
+enum Drinks
+{
+	COLA,SPRITE,MAZAA,STING;
+		
+	Drinks()
+	{
+		System.out.println("constructor");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Drinks d=Drinks.COLA;	
+	}
+}
+
+ex:
+---
+enum Cloths
+{
+	COTTON,KHADI,SILK;
+	
+	static int i=100;
+	
+	public static void main(String[] args)
+	{
+		System.out.println(i); //100
+	}
+}
+
+Inner classes
+==============
+Sometimes we will declare a class inside another class such concept is called inner class.
+
+ex:
+	class Outer
+	{
+		class Inner
+		{
+			-
+			- //code to declare 
+			-
+		}
+	}
+
+Inner class must be declare within the scope of outer class.
+
+Inner classes introduced as a part of event handling to remove GUI bugs.
+
+But due to powerful features of inner classes , programmers started to use inner classes in regular programming.
+
+Inner classes do not allow static members.
+
+
+Accessing inner class data from static area of outer class
+----------------------------------------------------------
+class Outer 
+{
+	class Inner
+	{
+		public void m1()
+		{
+			System.out.println("Inner-M1 method");
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		Outer.Inner i=new Outer().new Inner();
+		i.m1();
+	}
+}
+
+If we compile above program then we will get two .class files i.e 
+Outer.class and Outer$Inner.class.
+
+ex:
+---
+class Outer 
+{
+	class Inner
+	{
+		public void m1()
+		{
+			System.out.println("Inner-M1 method");
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		new Outer().new Inner().m1();
+	}
+}
+
+Accessing inner class data from non-static area of a outer class
+--------------------------------------------------------------
+class Outer 
+{
+	class Inner
+	{
+		public void m1()
+		{
+			System.out.println("Inner-M1 method");
+		}
+	}
+	
+	public void m2()
+	{
+		Inner i=new Inner();
+		i.m1();
+	}
+	public static void main(String[] args)
+	{
+		Outer o=new Outer();
+		o.m2();
+	}
+}
+
+Wrapper classes
+===============
+The main objective of wrapper classes are
+
+1) To wrap primitive type to wrapper object and vice versa.
+
+2) To define several utility methods.
+
+
+ex:
+	Primitive type			wrapper class
+	---------------			-------------
+	byte				Byte 
+	short				Short
+	int				Integer
+	long				Long
+	float				Float
+	double 				Double
+	boolean				Boolean
+	char 				Character 
+
+constructor
+-------------
+Every wrapper class contains two methods.One will take corresponding primitive as an argument and another will take corresponding string as an argument.
+
+ex:
+	Wrapper class			constructor
+	------------------		--------------
+	Byte				byte or String
+	Short				short or String
+	Integer				int or String
+	Long				long or String
+	Float				float or String
+	Double				double or String
+	Boolean 			boolean or String
+	Character			char 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i1=new Integer(10);
+		System.out.println(i1);
+		
+		Integer i2=new Integer("20");
+		System.out.println(i2);
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Boolean b1=new Boolean(true);
+		System.out.println(b1); //true 
+		
+		Boolean b2=new Boolean("false");
+		System.out.println(b2); //false
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Character c=new Character('a');
+		System.out.println(c);//a
+	}
+}
+
+Utility methods
+---------------
+
+1) valueOf() 
+-----------
+It is similar to constructor.
+
+It will convert primitive type to wrapper object.
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i1=Integer.valueOf(10);
+		System.out.println(i1);//10
+		
+		Integer i2=Integer.valueOf("20");
+		System.out.println(i2);//20
+		
+	}
+}
+
+2) xxxValue()
+-------------
+It is used to convert wrapper object to primitive type.
+
+ex:
+--
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i=new Integer(10);
+		short s=i.shortValue();
+		System.out.println(s);//10
+		
+		byte b=i.byteValue();
+		System.out.println(b);//10
+	}
+}
+
+
+3) parseXxx()
+--------------
+It is used to convert string type to primitive type.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="10";
+		
+		int i=Integer.parseInt(str);
+		System.out.println(i);
+		
+		long l=Long.parseLong(str);
+		System.out.println(l);
+		
+		float f=Float.parseFloat(str);
+		System.out.println(f);
+	}
+}
+
+4) toString()
+---------------
+It is used to convert wrapper object to string type.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i1=new Integer(10);
+		
+		String str=i1.toString();
+		
+		System.out.println(str);//10
+	}
+}
+
+Q) Write a java program to perform sum of two binary numbers?
+
+input:
+	1010
+	0101
+output:
+	1111
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the binary1 : ");
+		String binary1=sc.next();
+		
+		System.out.println("Enter the binary2 :");
+		String binary2=sc.next();
+		
+		//convert binary to decimal 
+		int a=Integer.parseInt(binary1,2);
+		int b=Integer.parseInt(binary2,2);
+		
+		int c=a+b;
+		
+		//convert decimal to binary 
+		String result=Integer.toBinaryString(c);
+		System.out.println(result);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

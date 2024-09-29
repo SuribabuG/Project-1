@@ -1,0 +1,439 @@
+Q) Write a java program to delete the string?
+
+input:	
+	str = This is java class
+	delete = is
+
+output:
+	Th java class 
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		String delete="is";
+		
+		str=str.replaceAll(delete,"");
+		
+		System.out.println(str);
+		
+	}
+}
+
+Q) Write a java program to display reverse of a string?
+
+input:
+	hello
+
+output:
+	olleh 
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+		
+		char[] carr=str.toCharArray(); // h    e    l    l    o 
+		
+		String rev="";
+		
+		//reading reverse
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		
+		System.out.println(rev);
+	}
+}
+
+
+Q) Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+
+output:
+	It is a palindrome string
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+		
+		char[] carr=str.toCharArray(); // r  a   c   a   r 
+		
+		String rev="";
+		
+		//reading reverse
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+			
+	}
+}
+
+Q) Write a java program to display the reverse of the string?
+
+input:
+	This is java class
+
+output:
+	class java is This 
+
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		
+		String[] sarr=str.split(" "); // This      is      java     class
+		
+		String rev="";
+		
+		for(int i=sarr.length-1;i>=0;i--)
+		{
+			rev+=sarr[i]+" ";
+		}
+		System.out.println(rev);
+	}
+}
+
+
+Q) Write a java program to display reverse of a string?
+
+input:
+	This is java class
+
+output:
+	sihT si avaj ssalc 
+
+
+ex:
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		
+		String[] sarr=str.split(" "); // This      is      java     class
+		
+		//for each loop
+		for(String s:sarr)
+		{
+			char[] carr=s.toCharArray();// T   h   i  s 
+			
+			//reading reverse
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				System.out.print(carr[i]);
+			}
+			//space
+			System.out.print(" ");
+		}
+		
+	
+	}
+}
+
+
+Q) Write a java program to display the string starting with uppercase letters?
+
+input:
+	This is Java language For students
+
+output:
+	This  Java  For 
+
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is Java language For students";
+		
+		String[] sarr=str.split(" "); // This      is      Java     language   For    students
+		
+		//for each loop
+		for(String s:sarr)
+		{
+			if(s.charAt(0)>='A' && s.charAt(0)<='Z')
+			{
+				System.out.print(s+" ");
+			}
+		}
+		
+	}
+}
+
+Q) Write a java program to display vowels present in a given string?
+
+input:
+	Umbrella 
+
+output:
+	u e a 
+
+ex:
+
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="Umbrella";
+		
+		str=str.toLowerCase();
+		
+		//reading characters from string
+		for(int i=0;i<str.length();i++)
+		{
+			char ch=str.charAt(i);
+			if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+			{
+				System.out.print(ch+" ");
+			}
+		}
+		
+	}
+}
+
+Q) Write a java program to display the string in a given format?
+
+Input:
+	A1B2C3D4
+
+output:
+	ABBCCCDDDD
+
+ 
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="A1B2C3D4";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			if(Character.isAlphabetic(str.charAt(i)))
+			{
+				System.out.print(str.charAt(i));
+			}
+			else
+			{
+				int n=Character.getNumericValue(str.charAt(i));
+				
+				for(int k=1;k<n;k++)
+				{
+					System.out.print(str.charAt(i-1));
+				}
+			}
+		}
+	}
+}
+
+Q) Write a java program to check given string is anagram or not?
+
+input:
+	str1 = silent 
+	str2 = listen 
+
+output:
+	It is a anagram string 
+
+ex:
+
+
+import java.util.Arrays;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1 ="silent";
+		String str2 ="listen";
+		
+		char[] carr1=str1.toCharArray();
+		char[] carr2=str2.toCharArray();
+		
+		Arrays.sort(carr1); // e i l n s t 
+		Arrays.sort(carr2); // e i l n s t 
+		
+		boolean flag=true;
+		for(int i=0;i<carr1.length && i<carr2.length;i++)
+		{
+			if(carr1[i]!=carr2[i])
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true)
+			System.out.println("It is a anagram string");
+		else
+			System.out.println("It is not a anagram string");
+		
+	}
+}
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	XYZ
+
+output
+	XY
+	XZ
+	YX
+	YZ
+	ZX
+	ZY 
+
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="XYZ";
+		
+		char[] carr=str.toCharArray();
+		
+		for(int i=0;i<carr.length;i++)
+		{
+			for(int j=0;j<carr.length;j++)
+			{
+				if(carr[i]!=carr[j])
+				{
+					System.out.println(carr[i]+""+carr[j]);
+				}
+			}
+		}
+		
+	}
+}
+
+Q) Write a java program to display duplicate  and unique characters from given string?
+
+input:
+	google 
+
+output:
+	Duplicate characters : o g
+	Unique characters : g o l e
+  
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="google";
+		
+		String duplicates="";
+		String uniques="";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			String s=Character.toString(str.charAt(i));
+			if(!uniques.contains(s))
+			{
+				uniques+=s;
+				continue;
+			}
+			duplicates+=s;
+		}
+		
+		System.out.println("Duplicate characters :"+duplicates);
+		System.out.println("Unique characters :"+uniques);
+	}
+}
+
+Q) Write a java program to convert the string's initial letter in uppercase?
+
+input:
+	this is java class 
+
+output:
+	This  Is  Java  Class 
+
+ex:
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="this is java class";
+		
+		String[] sarr=str.split(" ");// this    is    java    class 
+		
+		String result="";
+		
+		//for each loop
+		for(String s:sarr)
+		{
+			char[] carr=s.toCharArray(); // t    h   i    s 
+			
+			for(int i=0;i<carr.length;i++)
+			{
+		
+				if(i==0)	
+				{
+					result+=(char)(carr[i]-32);
+				}
+				else
+				{
+					result+=carr[i];
+				}
+				
+			}
+			//space
+			result+=" ";
+		}
+		
+		System.out.print(result);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

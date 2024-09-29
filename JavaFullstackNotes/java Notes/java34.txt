@@ -1,0 +1,501 @@
+StringBuilder
+=============
+StringBuilder is exactly same as StringBuffer with following differences.
+
+
+StringBuffer					StringBuilder
+-----------------				---------------
+Methods which are present in StringBuffer	No method present in StringBuilder is synchronized.
+are synchronized.
+
+At a time only one thread is allowed to operate	Multiple threads are allowed to operator on 
+on StringBuffer object.StringBuffer is thread	StringBuilder object.StringBuilder is not thread
+safe.						safe.
+
+Waiting time of a thread will increase		There is no waiting time relatively performance  
+relatively performance is low.			is high.
+
+It is introduced in 1.0v.			It is introduced in 1.5v.
+
+
+StringTokenizer
+===============
+StringTokenizer is a class which is present in java.util package.
+
+It is used to tokenize the string irrespective of regular expression.
+
+We can declare StringTokenizer object as follow.
+
+ex:
+	StringTokenizer st=new StringTokenizer(String str,RegExp reg);
+
+StringTokenizer class contains following methods.
+
+ex:
+	public boolean hasMoreTokens()
+	public String nextToken()
+	public boolean hasMoreElements()
+	public Objct nextElement()
+	public int countTokens() 
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class");
+		
+		System.out.println(st.countTokens());
+	}
+}
+Note:
+----
+	Here default regular expression is space.
+
+ex:2
+----
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		
+		while(st.hasMoreTokens())
+		{
+			String s=st.nextToken();
+			System.out.println(s);
+		}
+	}
+}
+
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+		
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	}
+}
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("9,99,999",",");
+		
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	}
+}
+
+Note:
+----
+If our content change frequently then it is never recommanded to use String.
+
+If our content change frequently where thread safety is required then we need to use StringBuffer.
+
+If our content change frequently where thread safety is not required then we need to use StringBuilder.
+
+
+Exception Handling
+===================
+
+Q) What is the difference between Exception and Error?
+
+Exception
+---------
+	Exception is a problem for which we can provide solution programmatically.
+
+	Exceptions will occur due to syntax errors.
+
+	ex:
+		ArithmeticException
+		FileNotFoundException
+		IllegalArgumentException
+
+Error
+-----
+	Error is a problem for which we can't provide solution programmatically.
+
+	Errors will occur due to lack of system resources.
+
+	ex:	
+		OutOfMemoryError
+		LinkageError 
+		StackOverFlowError 
+
+As a part of java application development it is a responsibility of a programmer to provide 
+smooth termination for every java program.
+
+We have two types of terminations.
+
+1) Smooth termination  / Graceful termination 
+
+2) Abnormal termination 
+
+1) Smooth termination
+------------------------
+During the program execution suppose if we are not getting any intteruption in the middle of the program such type of termination is called smooth termination.
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Hello World");
+	}
+}
+
+2) Abnormal termination 
+------------------------
+During the program execution suppose if we are getting some intteruption in the middle of the program such type of termination is called abnormal termination.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(10/0);
+	}
+}
+
+If any exception raised in our program we must and should handle that exception otherwise our program will terminates abnormally.
+
+Here exception will display name of the exception,description of the exception and line number of the exception.
+
+
+Exception
+==========
+It is a unwanted, unexpected event which disturbs normal flow of our program.
+
+Exceptions always raised at runtime so they are also known as runtime events.
+
+The main objective of exception handling is to provide graceful termination.
+
+In java, exceptions are divided into two types.
+
+1) predefined exceptions 
+
+2) Userdefined exceptions 
+
+
+1) predefined exceptions 
+-------------------------
+Built-In exceptions are called predefined exceptions.
+
+It is classified into two types.
+
+i) Checked exceptions 
+-------------------
+Exceptions which are checked by the compiler at the time of compilation is called checked exceptions.
+ex:
+	InterruptedException
+	EOFException 
+	FileNotFoundException
+	and etc.
+
+ii) Unchecked exceptions 
+------------------------
+Exceptions which are checked by the JVM at runtime is called unchecked exceptions.
+ex:
+
+	ArithmeticException 
+	ClassCastException
+	IllegalArgumentException 
+	and etc.
+
+Diagram: java34.1
+
+
+If any checked exception raised in our program , we must and should handle exception by using try and catch block.
+
+try block
+=========
+It is a block which contains risky code.
+
+It is associate with catch block.
+
+If any exception raise in try block then it won't be executed.
+
+A try block is used to throw the exception to catch block.
+
+catch block
+==========
+It is a block which contains error handling code.
+
+It is always associate with try block.
+
+A catch block is used to catch the exception which is thrown by try block.
+
+If there is no exception in try block then catch block won't be executed.
+
+A catch block will exception name as a parameter and that name must match with exception class name.
+
+syntax:
+------
+	try
+	{
+		-
+		- //risky code 
+		-
+	}
+	catch(ArithmeticException ae)
+	{
+		-
+		- //error handling code 
+		-
+	}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("try-block");
+		}
+		catch (Exception e)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	try-block
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	catch-block
+
+ex:
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("stmt1");
+			System.out.println(10/0);
+			System.out.println("stmt2");
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	stmt1
+	catch-block
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		
+		try
+		{
+			i++;
+		}
+		catch (Exception e)
+		{
+			i++;
+		}
+		
+		System.out.println(i);//2
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

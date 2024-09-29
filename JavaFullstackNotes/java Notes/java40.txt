@@ -1,0 +1,272 @@
+
+Q) How can we make ArrayList as synchronized?
+
+import java.util.*;
+public class Test
+{
+    public static void main(String[] args) {
+        // Create a new ArrayList
+        List<String> arrayList = new ArrayList<>();
+        
+        // Make the ArrayList synchronized
+        List<String> synchronizedList = Collections.synchronizedList(arrayList);
+        
+        // Use the synchronized list
+        synchronizedList.add("one");
+        synchronizedList.add("two");
+        
+	synchronizedList.forEach(element-> System.out.print(element+" "));
+    }
+}
+
+
+
+
+
+Q) Write a java program to display the string in sorting order?
+
+Input:
+	Ball Dog Apple Cat Elephant
+
+output:
+	Apple Ball Cat Dog Elephant 
+
+ex:
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="Ball Dog Apple Cat Elephant";
+		
+		String[] sarr=str.split(" ");  // Ball Dog Apple Cat Elephant
+		
+		
+		List<String> list=new ArrayList<String>();
+		
+		for(String s:sarr)
+		{
+			list.add(s);
+		}
+		
+		Collections.sort(list);
+		
+		list.forEach(element -> System.out.print(element+" "));
+	}
+}
+
+
+
+
+
+Q) What is the difference between Comparable and Comparator interface?
+
+Comparable
+----------
+Comparable is an interface which is present in java.lang package.
+
+Comparable interface contains only one method i.e compareTo() method.
+
+If we depends upon default natural sorting order then we need to use Comparable interface.
+
+ex:
+	obj1.compareTo(obj2)
+
+	It returns -ve if obj1 comes before obj2 
+	It returns +ve if obj1 comes after obj2 
+	It returns 0 if both objects are same
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("A".compareTo("Z")); // -25 
+		System.out.println("Z".compareTo("A")); // 25
+		System.out.println("K".compareTo("K")); // 0
+	}
+}
+
+	
+
+
+
+Comparator 
+----------
+Comparator is an interface which is present in java.util package.
+
+Comparator interface contains two methods i.e compare() and equals() method.
+
+If we depends upon customized sorting order then we need to use Comparator interface.
+
+ex:
+	public int compare(Object obj1,Object obj2)
+
+	It returns +ve if obj1 comes before obj2 
+	It returns -ve if obj1 comes after obj2 
+	It returns 0 if both objects are same
+
+Implementation of equals() method is optional because it is available to the class by the Object 
+class through inheritance.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		ts.add(7);
+		System.out.println(ts);//[10,7,5,1]
+	}
+}
+class MyComparator implements Comparator
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1=(Integer)obj1;
+		Integer i2=(Integer)obj2;
+		
+		if(i1<i2)
+			return 1;
+		else if(i1>i2)
+			return -1;
+		else 
+			return 0;
+	}
+}
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		ts.add(7);
+		System.out.println(ts);//[1,5,7,10]
+	}
+}
+class MyComparator implements Comparator
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1=(Integer)obj1;
+		Integer i2=(Integer)obj2;
+		
+		if(i1<i2)
+			return -1;
+		else if(i1>i2)
+			return 1;
+		else 
+			return 0;
+	}
+}
+
+
+Q) Write a java program to compare two dates?
+
+
+import java.time.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LocalDate date1=LocalDate.of(2023,07,31);
+		
+		LocalDate date2=LocalDate.now();
+		
+		if(date1.compareTo(date2)>0)
+			System.out.println("date1 is greatest");
+		else if(date1.compareTo(date2)<0)
+			System.out.println("date2 is greatest");
+		else
+			System.out.println("Both are same");
+		
+		
+	}
+}
+
+ex:
+---
+import java.time.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LocalDate date1=LocalDate.now();
+		
+		LocalDate date2=LocalDate.of(2023,07,31);
+		
+		if(date1.compareTo(date2)>0)
+			System.out.println("date1 is greatest");
+		else if(date1.compareTo(date2)<0)
+			System.out.println("date2 is greatest");
+		else
+			System.out.println("Both are same");
+		
+		
+	}
+}
+
+Map
+====
+It is not a child interface of Collection interface.
+
+If we want to represent group of individual objects in key and value pair then we need to use 
+Map interface.
+
+Key and value both must be objects.
+
+Key can't be duplicate but value can be duplicate.
+
+Each key and value pair is known as one entry.
+
+Diagram: java40.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

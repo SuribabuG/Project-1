@@ -1,0 +1,198 @@
+Q) Write a java program to multiply two arrays?
+
+input:
+	4 1 2 
+	2 5 
+
+output:
+	10300 (412*25)
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={4,1,2}; 
+		int[] arr2={2,5}; 
+		
+		//caller method
+		int a=Integer.parseInt(arrayToString(arr1));
+		int b=Integer.parseInt(arrayToString(arr2));
+		System.out.println(a*b);
+	}
+	//callie method
+	public static String arrayToString(int[] arr)
+	{
+		StringBuffer sb=new StringBuffer();  
+		
+		for(int i:arr)
+		{
+			sb.append(i);	
+		}
+		
+		return sb.toString();
+	}
+}
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	ABBCCCDDDD
+
+output:
+	A1B2C3D4
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ABBCCCDDDD";
+		
+		StringBuffer sb=new StringBuffer();
+		
+		int count=1;
+		
+		for(int i=0;i<str.length();i++)
+		{
+			if(i<str.length()-1 && str.charAt(i) == str.charAt(i+1))	
+			{
+				count++;
+			}
+			else
+			{
+				sb.append(str.charAt(i));
+				sb.append(count);
+				count=1;
+			}
+		}
+		
+		System.out.println(sb.toString());
+	}
+}
+
+Q) Write a java program to encode the string?
+
+
+input:
+	1106  
+
+output:
+	AAJF
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="1106";
+		
+		StringBuffer sb=new StringBuffer();
+		
+		for(int i=0;i<str.length();i++)
+		{
+			int n=Integer.parseInt(Character.toString(str.charAt(i)));
+			if(n>0)
+			{
+				sb.append((char)('A'+ n-1));
+			}
+			else
+			{
+				int k=Integer.parseInt(str.substring(i-1,i+1));
+				sb.append((char)('A' + k-1));
+			}
+		}
+		
+		System.out.println(sb.toString());
+	}
+}
+
+Q) Write a java program to display longest common sub sequence in a given string?
+
+input:
+	ABCAB
+	AECB
+
+output:
+	3 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="ABCAB";
+		String str2="AECB";
+		
+		//caller method 
+		System.out.println(longestCommonSubsequence(str1,str2));
+	}
+	//callie method 
+	public static int longestCommonSubsequence(String str1,String str2)
+	{
+		return solve(str1,str2,0,0);
+	}
+	//callie method 
+	public static int solve(String str1,String str2,int i,int j)
+	{
+		if(i==str1.length())
+			return 0;
+		if(j==str2.length())
+			return 0;
+		
+		int ans=0;
+		
+		if(str1.charAt(i) == str2.charAt(j))
+		{
+			ans=1+solve(str1,str2,i+1,j+1);	
+		}
+		else
+		{
+			ans=Math.max(solve(str1,str2,i+1,j),solve(str1,str2,i,j+1));
+		}
+		
+		return ans;
+	}
+	
+}
+
+Assignment
+=========
+Write a java program to decode the string?
+
+input:
+	AAJF
+
+output:
+	1106
+
+
+char ch=str.charAt('A')
+ch - 64 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

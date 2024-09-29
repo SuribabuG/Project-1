@@ -1,0 +1,257 @@
+Marker Interface
+================
+Interface which does not have any methods and constants is called marker interface.
+
+In general, Empty interface is called marker interface.
+
+By using marker interface we will get some ability to do.
+
+We have following list of marker interfaces.
+
+ex:
+	Serializable 
+	Cloneable
+	Remote 
+	and etc.
+
+ex:
+---
+class Item implements java.io.Serializable
+{
+	private int itemId;
+	private String itemName;
+	private double itemPrice;
+	
+	//setter and getter methods
+	public void setItemId(int itemId)
+	{
+		this.itemId=itemId;
+	}
+	public int getItemId()
+	{
+		return itemId;
+	}
+	
+	public void setItemName(String itemName)
+	{
+		this.itemName=itemName;
+	}
+	public String getItemName()
+	{
+		return itemName;
+	}
+	
+	public void setItemPrice(double itemPrice)
+	{
+		this.itemPrice=itemPrice;
+	}
+	public double getItemPrice()
+	{
+		return itemPrice;
+	}
+	
+}
+
+API
+=====
+API stands for Application Programming Interface.
+
+API is a collection of packages. 
+
+It is a base for the programmers to develop software applications.
+
+In java , API is categories into three types.
+
+1) Predefined API 
+-----------------
+	Built-In API is called predefined API.
+	ex:
+		https://docs.oracle.com/javase/8/docs/api/
+
+2) Userdefined API 
+-----------------
+	API which is created by the user based on the application requirements.
+
+
+3) Third party API 
+------------------
+	API which is given by third party vendor.
+	ex:
+		JAVAZOOM API 
+		IText API 	
+
+
+package
+=========
+A package is a collection of a classes,interfaces, enums and annotations.
+
+Here enum is a special class and annotation is a special interface.
+
+In general , a package is a collection of classes and interfaces.
+
+A package is also known as a folder or a directory.
+
+In java, packages are divided into two types.
+
+1) Predefined packages 
+
+2) Userdefined packages
+
+1) Predefined packages 
+---------------------
+Built-in packages are called predefined packages.
+ex:
+	java.lang
+	java.io
+	java.util
+	java.sql
+	and etc.
+
+2) Userdefined packages
+-----------------------
+A package which is created by the user based on the application requirement is called userdefined package.
+
+We can declare userdefined package as follow.
+
+syntax:
+-----
+	package   package_name;
+
+It is always recommanded to declare package name in the reverse order of url.
+ex:
+	package  com.google.www 
+
+ex:
+----
+package com.ihub.www;
+import java.util.Calendar;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Calendar c=Calendar.getInstance();
+		int h=c.get(Calendar.HOUR_OF_DAY);
+		
+		if(h<12)
+			System.out.println("Good Morning");
+		else if(h<16)
+			System.out.println("Good Afternoon");
+		else if(h<20)
+			System.out.println("Good Evening");
+		else
+			System.out.println("Good Night");
+	}
+}
+
+We can compile above program by using below command.
+ex:
+
+		current directory 
+		      |
+	javac   -d    .      Test.java
+		|
+	destination location 
+
+We can run above program by using below command.
+ex:
+	java     com.ihub.www.Test 
+			|	|
+		package name  classname 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

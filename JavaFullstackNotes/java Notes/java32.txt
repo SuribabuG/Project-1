@@ -1,0 +1,305 @@
+Q) Write a java program to find out most repeating character in a  given string?
+
+Input:
+	ihubtalentinstitute 
+
+output:
+	t is repeating for 5 times 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalentinstitute";
+		
+		char character=' ';
+		int  maxCount=0;
+		
+		for(int i=0;i<str.length();i++)
+		{
+			int cnt=0;
+			
+			for(int j=0;j<str.length();j++)
+			{
+				if(str.charAt(i)==str.charAt(j))
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				character=str.charAt(i);
+			}
+		}
+		System.out.println(character+" is repeating for "+maxCount+" times");
+	}
+}
+
+
+Q) Write a java program to display permutation of a given string?
+
+input:
+	ABC
+
+output:
+	ABC 
+	ACB
+	BAC
+	BCA
+	CBA 
+	CAB 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ABC";
+		//caller method
+		permutation(str.toCharArray(),0);
+	}
+	//callie method 
+	public static void permutation(char[] arr,int fi)
+	{
+		if(fi==arr.length-1)
+		{
+			System.out.println(arr);
+			return;
+		}
+		
+		for(int i=fi;i<arr.length;i++)
+		{
+			swapping(arr,fi,i);
+			permutation(arr,fi+1);
+			swapping(arr,fi,i);
+		}
+	}
+	//callie method
+	public static void swapping(char[] arr,int fi,int i)
+	{
+		char temp=arr[fi];
+		arr[fi]=arr[i];
+		arr[i]=temp;
+	}
+}
+
+StringBuffer
+==============
+If our content change frequently then it is not recommanded to use String because for every change a new object will be created.
+
+To overcome this limitation Sun Micro System introduced StringBuffer concept.
+
+In SringBuffer all the required changes will be done in a single object only.
+
+constructors
+-------------
+1) StringBuffer sb=new StringBuffer()
+-------------------------------------
+It will create empty StringBuffer object with default initial capacity of 16.
+
+If we reach maximum capacity then new capacity will be created with below formulea.
+
+ex:
+	new capacity = current_capacity + 1 * 2;
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer();
+		
+		System.out.println(sb.capacity()); //16
+		
+		sb.append("abcdefghijklmnop");
+		
+		System.out.println(sb.capacity());//16
+		
+		sb.append("qr");
+		System.out.println(sb.capacity()); //16+1*2=34
+	}
+	
+}
+
+2) StringBuffer sb=new StringBuffer(initial capacity)
+------------------------------------------------------
+It will create StringBuffer object with specified initial capacity.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer(19);
+		
+		System.out.println(sb.capacity()); //19
+		
+		
+	}
+	
+}
+
+
+3) StringBuffer sb=new StringBuffer(String s)
+------------------------------------------------------
+It will create StringBuffer object equivalent to String.
+
+Here capacity will be created with below formulea.
+
+ex:
+	capacity = s.length() + 16;
+
+ex:
+ 
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer("bhaskar");
+		
+		System.out.println(sb.capacity()); //7+16=23
+		
+		
+	}
+	
+}
+
+Q) Write a java progrm to display reverse of a string?
+
+input:
+	hello 
+
+output:
+	olleh 
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+		
+		StringBuffer sb=new StringBuffer(str);
+		
+		String rev=sb.reverse().toString();
+		
+		System.out.println(rev);
+	}
+	
+}
+
+Q) Write a java program to check given string is palindrome or not?
+
+input:	
+	racar 
+
+output:
+	IT is a palindrome string 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+		
+		StringBuffer sb=new StringBuffer(str);
+		
+		String rev=sb.reverse().toString();
+		
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+	}
+	
+}
+
+Q) Write a java program to count number of 2's present in a number?
+
+input:
+	22
+
+output:
+	6 (2,12,20,21,22)
+
+ex:
+---
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int num=22;
+		
+		StringBuffer sb=new StringBuffer();
+		
+		for(int i=1;i<=num;i++)
+		{
+			sb.append(i);
+		}
+		
+		int cnt=0;
+		for(int i=0;i<sb.length();i++)
+		{
+			int n=Integer.parseInt(Character.toString(sb.charAt(i)));
+			if(n==2)
+			{
+				cnt++;
+			}
+		}
+		System.out.println(cnt);
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
